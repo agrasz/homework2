@@ -27,6 +27,12 @@ public class User implements Serializable {
         futureValue = 0;
         
     }
+    
+    public User(Double investment, Double interest, Double years) {
+        this.investment = investment;
+        this.interest = interest;
+        this.years = years;
+    }
 
     /**
      * @return the investment

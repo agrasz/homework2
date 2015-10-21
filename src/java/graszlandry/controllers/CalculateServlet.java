@@ -1,3 +1,4 @@
+/*Copyright Jack Landry and Lexa Grasz 2015*/
 
 package graszlandry.controllers;
 
@@ -17,9 +18,9 @@ import javax.servlet.annotation.WebServlet;
 
 /**
  *
- * @author lexagrasz
+ * @author lexagrasz and Jack Landry
  */
-@WebServlet("/homework2")
+@WebServlet("/calculate")
 public class CalculateServlet extends HttpServlet {
 
     
@@ -73,12 +74,12 @@ public class CalculateServlet extends HttpServlet {
         Double interest = Double.parseDouble(interestS);
         String yearsS = request.getParameter("years");
         Double years = Double.parseDouble(yearsS);
-        String futureValueS = request.getParameter("futureValue");
-        Double futureValue = Double.parseDouble(futureValueS);
+        
 
         
         //Stores data in User object
         User user = new User(investment, interest, years);
+        Calculator calculator = new Calculator();
         
         String message;
         if (investment == null || interest == null || years == null || 
@@ -88,10 +89,12 @@ public class CalculateServlet extends HttpServlet {
         }
         else {
             message = null;
-            Calculator.calculate(user);
+            
+            calculator.calculate(user);
             url = "/future.jsp";
         }
         request.setAttribute("user", user);
+        request.setAttribute("calculator", calculator);
         request.setAttribute("message", message);
         
         }

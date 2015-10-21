@@ -1,3 +1,6 @@
+<!--Copyright Jack Landry and Lexa Grasz 2015-->
+
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/includes/header.html" %>
 
@@ -6,18 +9,17 @@
 
    
 
-    <label>Investment Amount:</label>
-    <span>${user.investment}</span><br>
-    <label>Yearly Interest Rate:</label>
+    <label class="display">Investment Amount:</label>
+    <span>${user.investmentCurrencyFormat}</span><br>
+    <label class="display">Yearly Interest Rate:</label>
     <span>${user.interest}</span><br>
-    <label>Number of Years:</label>
+    <label class="display">Number of Years:</label>
     <span>${user.years}</span><br>
-    <label>Future Value:</label>
-    <span>${user.futureValue}</span><br>
+    <label class="display">Future Value:</label>
+    <span>${calculator.totalCurrencyFormat}</span><br>
 
     <form action="" method="post">
         <input type="hidden" name="action" value="join">
-        <input type="submit" value="Return">
     </form>
 
 </body>

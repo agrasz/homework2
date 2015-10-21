@@ -1,7 +1,13 @@
+/*
+Copyright Jack Landry and Lexa Grasz 2015
+*/
+
+
 package graszlandry.business;
 
 
 import java.io.Serializable;
+import java.text.NumberFormat;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -39,6 +45,12 @@ public class User implements Serializable {
      */
     public double getInvestment() {
         return investment;
+    }
+    
+     public String getInvestmentCurrencyFormat() {
+        NumberFormat currency = NumberFormat.getCurrencyInstance();
+        String currencyInvestment = currency.format(this.getInvestment());
+        return currencyInvestment;
     }
 
     /**

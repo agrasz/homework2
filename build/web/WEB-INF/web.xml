@@ -3,15 +3,6 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
                     http://java.sun.com/xml/ns/javaee/web-app 3 1.xsd">
-<!--    <servlet>
-        <servlet-name>CalculateServlet</servlet-name>
-        <servlet-class>graszlandry.controllers.CalculateServlet</servlet-class>
-    </servlet>
-    
-    <servlet-mapping>
-        <servlet-name>CalculateServlet</servlet-name>
-        <url-pattern>/homework2</url-pattern>
-    </servlet-mapping>-->
     
     <session-config>
         <session-timeout>

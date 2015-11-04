@@ -4,6 +4,7 @@ package graszlandry.controllers;
 
 import graszlandry.business.Calculator;
 import java.io.IOException;
+import javax.servlet.http.HttpSession;
 import java.lang.String;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -17,6 +18,9 @@ import javax.servlet.ServletContext;
 import javax.servlet.annotation.WebServlet;
 
 /**
+ * Controls interaction with three jsp pages. Mapped to the /calculate URL. 
+ * Two methods, doGet and doPost, are written. 
+ * The doGet method calls the doPost method.
  *
  * @author lexagrasz and Jack Landry
  */
@@ -25,7 +29,7 @@ public class CalculateServlet extends HttpServlet {
 
     
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -47,6 +51,8 @@ public class CalculateServlet extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
+     * 
+     * This method assigns 
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -78,6 +84,7 @@ public class CalculateServlet extends HttpServlet {
 
         
         //Stores data in User object
+        HttpSession session = request.getSession();
         User user = new User(investment, interest, years);
         Calculator calculator = new Calculator();
         
@@ -93,9 +100,11 @@ public class CalculateServlet extends HttpServlet {
             calculator.calculate(user);
             url = "/future.jsp";
         }
-        request.setAttribute("user", user);
-        request.setAttribute("calculator", calculator);
-        request.setAttribute("message", message);
+        
+        
+        session.setAttribute("user", user);
+        session.setAttribute("calculator", calculator);
+        session.setAttribute("message", message);
         
         }
         
